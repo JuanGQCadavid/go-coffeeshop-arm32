@@ -1,47 +1,18 @@
-version: "3"
 
-services:
+build-proxy:
+	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-proxy --load -t go-coffeeshop-proxy .
 
-  proxy:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile-proxy
-    image: go-coffeeshop-proxy
+build-product:
+	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-product --load -t go-coffeeshop-product .
 
+build-counter:
+	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-counter --load -t go-coffeeshop-counter .
 
-  product:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile-product
-    image: go-coffeeshop-product
+build-barista:
+	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-barista --load -t go-coffeeshop-barista .
 
-
-  counter:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile-counter
-    image: go-coffeeshop-counter
-
-
-  barista:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile-barista
-    image: go-coffeeshop-barista
-
-
-  kitchen:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile-kitchen
-    image: go-coffeeshop-kitchen
-
-
-  web:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile-web
-    image: go-coffeeshop-web
+build-kitchen:
+	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-kitchen --load -t go-coffeeshop-kitchen .
 
 build-web:
-	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-web --build-context . --load -t go-coffeeshop-web .
+	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-web --push -t juangonzalout/go-coffeeshop-web:arm32 .
