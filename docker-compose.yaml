@@ -31,7 +31,7 @@ services:
       - coffeeshop-network
   
   proxy:
-    image: juangonzalout/go-coffeeshop-proxy:arm32
+    image: juangonzalout/go-coffeeshop-proxy
     environment:
       APP_NAME: 'proxy-service in docker'
       GRPC_PRODUCT_HOST: 'product'
@@ -47,7 +47,7 @@ services:
       - coffeeshop-network
 
   product:
-    image: juangonzalout/go-coffeeshop-product:arm32
+    image: juangonzalout/go-coffeeshop-product
     environment:
       APP_NAME: 'product-service in docker'
     ports:
@@ -56,7 +56,7 @@ services:
       - coffeeshop-network
 
   counter:
-    image: juangonzalout/go-coffeeshop-counter:arm32
+    image: juangonzalout/go-coffeeshop-counter
     environment:
       APP_NAME: 'counter-service in docker'
       IN_DOCKER: "true"
@@ -75,7 +75,7 @@ services:
       - coffeeshop-network
 
   barista:
-    image: juangonzalout/go-coffeeshop-barista:arm32
+    image: juangonzalout/go-coffeeshop-barista
     environment:
       APP_NAME: 'barista-service in docker'
       IN_DOCKER: "true"
@@ -91,7 +91,7 @@ services:
       - coffeeshop-network
 
   kitchen:
-    image: juangonzalout/go-coffeeshop-kitchen:arm32
+    image: juangonzalout/go-coffeeshop-kitchen
     environment:
       APP_NAME: 'kitchen-service in docker'
       IN_DOCKER: "true"
@@ -107,7 +107,7 @@ services:
       - coffeeshop-network
 
   web:
-    image: juangonzalout/go-coffeeshop-web:arm32
+    image: juangonzalout/go-coffeeshop-web
     environment:
       REVERSE_PROXY_URL: http://localhost:5000
       WEB_PORT: 8888
