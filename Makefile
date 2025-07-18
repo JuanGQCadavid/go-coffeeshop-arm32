@@ -15,7 +15,7 @@ build-kitchen:
 	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-kitchen --push -t juangonzalout/go-coffeeshop-kitchen .
 
 build-web:
-	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-web --push -t juangonzalout/go-coffeeshop-web:arm32 .
+	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-web --push -t juangonzalout/go-coffeeshop-web .
 
 lestgo: build-web build-kitchen build-barista build-counter build-product build-
 
