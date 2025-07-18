@@ -44,4 +44,4 @@ services:
     image: go-coffeeshop-web
 
 build-web:
-	make buildx build --platform linux/arm/v7 --load -t go-coffeeshop-web .
+	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-web --build-context . --load -t go-coffeeshop-web .
