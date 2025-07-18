@@ -1,4 +1,3 @@
-version: "3"
 
 services:
   postgres:
@@ -67,10 +66,9 @@ services:
     ports:
       - 5002:5002
     depends_on:
-      postgres:
-        condition: service_healthy
-      rabbitmq:
-        condition: service_healthy
+      - postgres
+      - rabbitmq
+        
     networks:
       - coffeeshop-network
 
@@ -83,10 +81,9 @@ services:
       PG_DSN_URL: host=postgres user=postgres password=P@ssw0rd dbname=postgres sslmode=disable
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672/
     depends_on:
-      postgres:
-        condition: service_healthy
-      rabbitmq:
-        condition: service_healthy
+      - postgres
+      - rabbitmq
+        
     networks:
       - coffeeshop-network
 
@@ -99,10 +96,9 @@ services:
       PG_DSN_URL: host=postgres user=postgres password=P@ssw0rd dbname=postgres sslmode=disable
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672/
     depends_on:
-      postgres:
-        condition: service_healthy
-      rabbitmq:
-        condition: service_healthy
+      - postgres
+      - rabbitmq
+        
     networks:
       - coffeeshop-network
 
