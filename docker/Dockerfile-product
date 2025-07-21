@@ -11,7 +11,6 @@ COPY --from=modules /go/pkg /go/pkg
 COPY . /app
 WORKDIR /app
 ENV GOOS=linux GOARCH=arm GOARM=7 CGO_ENABLED=0
-
 RUN go build -tags migrate -o /bin/app ./cmd/product
 
 # Step 3: Final

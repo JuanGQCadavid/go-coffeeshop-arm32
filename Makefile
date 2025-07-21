@@ -17,7 +17,7 @@ build-kitchen:
 build-web:
 	docker buildx build --platform linux/arm/v7 --file ./docker/Dockerfile-web --push -t juangonzalout/go-coffeeshop-web .
 
-lestgo: build-web build-kitchen build-barista build-counter build-product build-
+lestgo: build-web build-kitchen build-barista build-counter build-product build-proxy
 
 update:
 	docker stack deploy --compose-file docker-compose.yaml gocoffe
